@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -30,5 +31,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive('linkactive', function($route){
             return "<?php echo request()->is($route) ? 'active' : null; ?>";
         });
+
+        Schema::defaultStringLength(191);
     }
 }
